@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h3>Задача 5</h3>
+	<p>З клавіатури вводиться назва категорії водія (А-мотоцикл, В-легковий автомобіль, С-вантажний автомобіль). Вивести
+		на екран назву транспортного засобу, яким він може керувати.</p>
+	<br>
+	<script>
+		let category = prompt('Введіть категорію водія (А, В, чи С)', '');
+
+		switch (category.toUpperCase()) {
+			case 'A':
+				document.write(`Мотоцикл`);
+				break;
+			case 'B':
+				document.write(`Легковий автомобіль`);
+				break;
+			case 'C':
+				document.write(`Вантажний автомобіль`);
+				break;
+
+			default:
+				document.write(`Щось пішло не так. Спробуйте ще раз ввести категорію водія або змінити розкладку клавіатури`);
+				break;
+		}
+	</script>
+	<br><br>
+	<a href="../index_03.html">Повернутись назад</a>
+</body>
+
+</html>

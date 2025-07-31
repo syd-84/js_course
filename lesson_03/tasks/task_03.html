@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h3>Задача 3</h3>
+	<p>Випадковим чином генерується число від 1 до 5. Спробуйте вгадати число за 2 спроби.</p>
+	<br>
+	<script>
+		let number = Math.floor(Math.random() * 5) + 1;
+
+		let myNumber = parseInt(prompt('Спробуйте відгадати число від 1 до 5', '0'));
+		if (number == myNumber)
+			document.write(`Вітаю, ви відгадали число з першого разу`)
+		else {
+			myNumber = parseInt(prompt('Спробуйте ще раз відгадати число від 1 до 5', '0'));
+			if (number == myNumber)
+				document.write(`Вітаю, ви відгадали число з другого разу`)
+			else
+				document.write(`На жаль ви не змогли відгадати число.`)
+		}
+	</script>
+	<br><br>
+	<a href="../index_03.html">Повернутись назад</a>
+</body>
+
+</html>
