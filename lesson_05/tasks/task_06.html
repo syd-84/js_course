@@ -18,19 +18,21 @@
     <p>Вивести 3 таблиці (по 3 рядки і 3 стовпці у кожній)</p>
     <br>
     <script>
-        let count = 0;
-        for (let i = 1; i <= 3; i++) {
-            let table = '<table border="2px">'
-            for (let j = 1; j <= 3; j++) {
-                table += '<tr>'
-                for (let k = 1; k <= 3; k++) {
-                    count++;
-                    table += `<td>${count}</td>`
+        if (confirm('Почати тестування?')) {
+            let count = 0;
+            for (let i = 1; i <= 3; i++) {
+                let table = '<table border="2px">'
+                for (let j = 1; j <= 3; j++) {
+                    table += '<tr>'
+                    for (let k = 1; k <= 3; k++) {
+                        count++;
+                        table += `<td>${count}</td>`
+                    }
+                    table += '<tr>'
                 }
-                table += '<tr>'
+                table += '</table>'
+                document.write(`${table}`)
             }
-            table += '</table>'
-            document.write(`${table}`)
         }
     </script>
     <br><br>

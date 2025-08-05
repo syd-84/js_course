@@ -13,14 +13,16 @@
     </p>
     <br>
     <script>
-        const numberOfHeader = parseInt(prompt('Введіть кількість заголовків', '0'));
+        if (confirm('Почати тестування?')) {
+            const numberOfHeader = parseInt(prompt('Введіть кількість заголовків', '0'));
 
-        for (let i = 1; i <= numberOfHeader; i++) {
-            document.write(`<h1>Заголовок ${i}</h1>`);
-            for (let j = 1; j <= i; j++) {
-                document.write(`<p>Розділ ${i}, параграф ${j}</p>`);;
+            for (let i = 1; i <= numberOfHeader; i++) {
+                document.write(`<h1>Заголовок ${i}</h1>`);
+                for (let j = 1; j <= i; j++) {
+                    document.write(`<p>Розділ ${i}, параграф ${j}</p>`);;
+                }
+                document.write('<hr>')
             }
-            document.write('<hr>')
         }
     </script>
     <br><br>
