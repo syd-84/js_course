@@ -20,16 +20,17 @@
     <script>
         let count = 0;
         for (let i = 1; i <= 3; i++) {
-            document.write('<table border="2px">')
+            let table = '<table border="2px">'
             for (let j = 1; j <= 3; j++) {
-                document.write('<tr>')
+                table += '<tr>'
                 for (let k = 1; k <= 3; k++) {
                     count++;
-                    document.write(`<td>${count}</td>`)
+                    table += `<td>${count}</td>`
                 }
-                document.write('<tr>')
+                table += '<tr>'
             }
-            document.write('</table>')
+            table += '</table>'
+            document.write(`${table}`)
         }
     </script>
     <br><br>

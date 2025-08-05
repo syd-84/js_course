@@ -14,12 +14,13 @@
     <br>
     <script>
         const num = parseInt(prompt('Введіть кількість чисел', '0'));
-        document.write('<ul>');
+        let list = '<ul>'
         for (let i = 0; i < num; i++) {
             const randomNumber = 1 + Math.floor(Math.random() * 100);
-            document.write(`<li>${randomNumber}</li>`);
+            list += `<li>${randomNumber}</li>`
         }
-        document.write('</ul>');
+        list += '</ul>'
+        document.write(`${list}`);
     </script>
     <br><br>
     <p><a href="../index_05.html">Повернутись назад</a></p>

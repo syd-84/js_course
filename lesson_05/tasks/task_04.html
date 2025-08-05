@@ -12,15 +12,16 @@
     <p>Вивести таблицю з 3 рядків і 7 стовпців</p>
     <br>
     <script>
-        document.write('<table border="2px">')
+        let table = '<table border="2px">'
         for (let i = 1; i <= 3; i++) {
-            document.write('<tr>')
+            table += '<tr>'
             for (let j = 1; j <= 7; j++) {
-                document.write(`<td>${j}</td>`)
+                table += `<td>${j}</td>`
             }
-            document.write('<tr>')
+            table += '<tr>'
         }
-        document.write('</table>')
+        table += '</table>'
+        document.write(`${table}`)
     </script>
     <br><br>
     <p><a href="../index_05.html">Повернутись назад</a></p>
