@@ -14,10 +14,10 @@
     <script>
         if (confirm('Почати тестування?')) {
             let table = '<table border="2px">'
-            for (let i = 1; i <= 3; i++) {
+            for (let row = 1; row <= 3; row++) {
                 table += '<tr>'
-                for (let j = 1; j <= 7; j++) {
-                    table += `<td>${j}</td>`
+                for (let cell = 1; cell <= 7; cell++) {
+                    table += `<td>${cell}</td>`
                 }
                 table += '<tr>'
             }

@@ -20,11 +20,11 @@
     <script>
         if (confirm('Почати тестування?')) {
             let count = 0;
-            for (let i = 1; i <= 3; i++) {
+            for (let tab = 1; tab <= 3; tab++) {
                 let table = '<table border="2px">'
-                for (let j = 1; j <= 3; j++) {
+                for (let row = 1; row <= 3; row++) {
                     table += '<tr>'
-                    for (let k = 1; k <= 3; k++) {
+                    for (let cell = 1; cell <= 3; cell++) {
                         count++;
                         table += `<td>${count}</td>`
                     }
