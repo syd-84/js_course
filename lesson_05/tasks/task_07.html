@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Задача №7</h3>
+    Вивести на екран N абзаців (N вводиться користувачем) за зразком:
+    </p>
+    <br>
+    <script>
+        const numberOfHeader = parseInt(prompt('Введіть кількість заголовків', '0'));
+
+        for (let i = 1; i <= numberOfHeader; i++) {
+            document.write(`<h1>Заголовок ${i}</h1>`);
+            for (let j = 1; j <= i; j++) {
+                document.write(`<p>Розділ ${i}, параграф ${j}</p>`);;
+            }
+            document.write('<hr>')
+        }
+    </script>
+    <br><br>
+    <p><a href="../index_05.html">Повернутись назад</a></p>
+</body>
+
+</html>
