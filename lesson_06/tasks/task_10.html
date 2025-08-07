@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Задача №10</h3>
+    <p>Вивести на екран</p>
+    <pre>
+    1 1
+    2 1234
+    3 123456789
+    4 1234…16
+    5 1 … 25
+    6 1…36
+    </pre>
+    <br>
+    <script>
+        const num = parseInt(prompt('Введіть число', '6'));
+
+        for (let i = 1; i <= num; i++) {
+            let stringVariable = '';
+            for (let j = 1; j <= i * i; j++) {
+                stringVariable += j;
+            }
+            document.write(`${i}   ${stringVariable}<br>`)
+        }
+    </script>
+    <br><br>
+    <p><a href="../index_06.html">Повернутись назад</a></p>
+</body>
+
+</html>

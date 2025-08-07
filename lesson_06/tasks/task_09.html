@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Задача №12</h3>
+    <p>З клавіатури вводиться пароль (правильний пароль- 78). Поки пароль не вірний дати можливість користувачу повторно
+        ввести його.</p>
+    <br>
+    <script>
+        const password = '78';
+        let userText;
+        while (userText !== password) {
+            userText = prompt('Введіть пароль', '')
+        }
+        document.write(`Ви ввели правильний пароль`)
+    </script>
+    <br><br>
+    <p><a href="../index_06.html">Повернутись назад</a></p>
+</body>
+
+</html>
