@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Задача №1</h3>
+    <p>Створити функцію, яка за номером місяця повертає його назву.</p>
+    <br>
+    <script>
+        if (confirm('Почати тестування?')) {
+            function getMounth(mounthNumber) {
+                let mounthName;
+                switch (mounthNumber) {
+                    case 1: mounthName = 'січень';
+                        break;
+                    case 2: mounthName = 'лютий';
+                        break;
+                    case 3: mounthName = 'березень';
+                        break;
+                    case 4: mounthName = 'квітень';
+                        break;
+                    case 5: mounthName = 'травень';
+                        break;
+                    case 6: mounthName = 'червень';
+                        break;
+                    case 7: mounthName = 'липень';
+                        break;
+                    case 8: mounthName = 'серпень';
+                        break;
+                    case 9: mounthName = 'вересень';
+                        break;
+                    case 10: mounthName = 'жовтень';
+                        break;
+                    case 11: mounthName = 'листопад';
+                        break;
+                    case 12: mounthName = 'грудень';
+                        break;
+                }
+                return mounthName;
+            }
+
+            const mounthNumber = parseInt(prompt('Введіть номер місяця', '0'));
+            const mounthName = getMounth(mounthNumber);
+            document.write(`${mounthNumber}-й місяць - ${mounthName}`);
+        }
+    </script>
+    <br><br>
+    <p><a href="../index_07.html">Повернутись назад</a></p>
+</body>
+
+</html>

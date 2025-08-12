@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Задача №</h3>
+    <p>Створити окремі функції, які переводять:</p>
+    <p>Сантиметри у дюйми;</p>
+    <p>Кілограми у фунти;</p>
+    <p>Кілометри у милі.</p>
+    <br>
+    <script>
+        if (confirm('Почати тестування?')) {
+            function transformCmToInch(cm) {
+                return cm / 2.54;
+            }
+
+            function transformKgToLb(kg) {
+                return kg / 2.2056;
+            }
+
+            function transformKmToMile(km) {
+                return km / 1.609;
+            }
+
+            const cm = parseFloat(prompt(`Введіть кількість сантиметрів`, '0'));
+            const kg = parseFloat(prompt(`Введіть кількість кілограм`, '0'));
+            const km = parseFloat(prompt(`Введіть кількість кілометрів`, '0'));
+
+            const inch = transformCmToInch(cm);
+            const lb = transformKgToLb(kg);
+            const mile = transformKmToMile(km);
+
+            document.write(`${cm} cm = ${inch.toFixed(3)} inch <br>`);
+            document.write(`${kg} kg = ${lb.toFixed(3)} lb <br>`);
+            document.write(`${km} km = ${mile.toFixed(3)} mile`);
+        }
+    </script>
+    <br><br>
+    <p><a href="../index_07.html">Повернутись назад</a></p>
+</body>
+
+</html>
