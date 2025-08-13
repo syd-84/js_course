@@ -17,23 +17,23 @@
             return 1 + Math.floor(Math.random() * 4);
         }
 
-        function getRandomImage(imgPath1, imgPath2, imgPath3, imgPath4) {
-            let imgPath;
+        function getRandomImage(imgLink1, imgLink2, imgLink3, imgLink4) {
+            let imgLink;
             switch (random4()) {
                 case 1:
-                    imgPath = imgPath1;
+                    imgLink = imgLink1;
                     break;
                 case 2:
-                    imgPath = imgPath2;
+                    imgLink = imgLink2;
                     break;
                 case 3:
-                    imgPath = imgPath3;
+                    imgLink = imgLink3;
                     break;
                 case 4:
-                    imgPath = imgPath4;
+                    imgLink = imgLink4;
                     break;
             }
-            return `<img src="${imgPath}" width=200>`;
+            return `<img src="${imgLink}" width=200>`;
         }
 
         let randomImage = getRandomImage(`../img/01.jpg`, `../img/02.jpg`, `../img/03.jpg`, `../img/04.jpg`);
