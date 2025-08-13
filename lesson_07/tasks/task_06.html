@@ -24,14 +24,15 @@
                     table += '<tr>'
                 }
                 table += '</table>'
-                document.write(`${table}`);
+                return table;
             }
 
-            const rows = parseInt(prompt(`Введіть кількість рядків таблиці`, '0'));
-            const columns = parseInt(prompt(`Введіть кількість стовпців таблиці`, '0'));
-            const text = prompt(`Введіть текст в таблицю`);
+            const rows = parseInt(prompt(`Введіть кількість рядків таблиці`, '3'));
+            const columns = parseInt(prompt(`Введіть кількість стовпців таблиці`, '5'));
+            const text = prompt(`Введіть текст в таблицю`, 'Hello!');
 
-            getTable(rows, columns, text);
+            let table = getTable(rows, columns, text);
+            document.write(`${table}`);
         }
     </script>
     <br><br>
