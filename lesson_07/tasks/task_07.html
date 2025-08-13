@@ -17,7 +17,7 @@
             return 1 + Math.floor(Math.random() * 4);
         }
 
-        function getImage(imgPath1, imgPath2, imgPath3, imgPath4) {
+        function getRandomImage(imgPath1, imgPath2, imgPath3, imgPath4) {
             let imgPath;
             switch (random4()) {
                 case 1:
@@ -36,7 +36,7 @@
             return `<img src="${imgPath}" width=200>`;
         }
 
-        document.write(getImage(`../img/01.jpg`, `../img/02.jpg`, `../img/03.jpg`, `../img/04.jpg`));
+        document.write(getRandomImage(`../img/01.jpg`, `../img/02.jpg`, `../img/03.jpg`, `../img/04.jpg`));
     </script>
     <br><br>
     <p><a href="../index_07.html">Повернутись назад</a></p>
