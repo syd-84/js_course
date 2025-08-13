@@ -17,11 +17,26 @@
             return 1 + Math.floor(Math.random() * 4);
         }
 
-        function getRandomImage() {
-            return `<img src="../img/0${random4()}.jpg" width=200`;
+        function getImage(imgPath1, imgPath2, imgPath3, imgPath4) {
+            let imgPath;
+            switch (random4()) {
+                case 1:
+                    imgPath = imgPath1;
+                    break;
+                case 2:
+                    imgPath = imgPath2;
+                    break;
+                case 3:
+                    imgPath = imgPath3;
+                    break;
+                case 4:
+                    imgPath = imgPath4;
+                    break;
+            }
+            return `<img src="${imgPath}" width=200>`;
         }
 
-        document.write(getRandomImage());
+        document.write(getImage(`../img/01.jpg`, `../img/02.jpg`, `../img/03.jpg`, `../img/04.jpg`));
     </script>
     <br><br>
     <p><a href="../index_07.html">Повернутись назад</a></p>
