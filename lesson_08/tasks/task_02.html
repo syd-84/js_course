@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Задача №2</h3>
+    <p>Дано масив, який зберігає кількість відвідувачів магазину протягом тижня. Вивести на екран:</p>
+    <ul>
+        <li>номери днів, протягом яких кількість відвідувачів була меншою за 20;</li>
+        <li>номери днів, коли кількість відвідувачів була мінімальною;</li>
+        <li>номери днів, коли кількість відвідувачів була мінімальною;</li>
+        <li>загальну кількість клієнтів у робочі дні та окремо загальну кількість днів на вихідних.</li>
+    </ul>
+    <br>
+    <script>
+        if (confirm('Почати тестування?')) {
+
+            function displayData(arr1, arr2) {
+                for (let i = 0; i < arr1.length; i++) {
+                    document.write(`${arr1[i]} ---> ${arr2[i]} <br>`);
+                }
+            }
+
+            function getDaysVisitorsLess20(visitors) {
+                let arr = [];
+                for (let i = 0; i < visitors.length; i++) {
+                    if (visitors[i] < 20) arr.push(weekDays[i]);
+                }
+                return arr;
+            }
+
+            function getMinArr(arr) {
+                let min = arr[0];
+                for (let i = 1; i < arr.length; i++) {
+                    if (arr[i] < min) min = arr[i];
+                }
+                return min;
+            }
+
+            function getMaxArr(arr) {
+                let max = arr[0];
+                for (let i = 1; i < arr.length; i++) {
+                    if (arr[i] > max) max = arr[i];
+                }
+                return max;
+            }
+
+            function getDaysMinVisitors(visitors) {
+                let arr = [];
+                min = getMinArr(visitors);
+                for (let i = 0; i < visitors.length; i++) {
+                    if (visitors[i] === min) arr.push(weekDays[i]);
+                }
+                return arr;
+            }
+
+            function getDaysMaxVisitors(visitors) {
+                let arr = [];
+                min = getMaxArr(visitors);
+                for (let i = 0; i < visitors.length; i++) {
+                    if (visitors[i] === min) arr.push(weekDays[i]);
+                }
+                return arr;
+            }
+
+            function getNumberVisitorsWorkDays(visitors) {
+                let sum = 0;
+                for (let i = 0; i <= 4; i++) {
+                    sum += visitors[i];
+                }
+                return sum;
+            }
+
+            function getNumberVisitorsWeekEnd(visitors) {
+                let sum = 0;
+                for (let i = 5; i <= 6; i++) {
+                    sum += visitors[i];
+                }
+                return sum;
+            }
+
+            const weekDays = ['понеділок', 'вівторок', 'середа', 'четвер', 'п\'ятниця', 'субота', 'неділя',];
+            const visitors = [32, 15, 15, 20, 19, 25, 40];
+
+            const daysVisitorsLess20 = getDaysVisitorsLess20(visitors);
+            const daysMinVisitors = getDaysMinVisitors(visitors);
+            const daysMaxVisitors = getDaysMaxVisitors(visitors);
+            const numberVisitorsWorkDays = getNumberVisitorsWorkDays(visitors);
+            const numberVisitorsWeekEnd = getNumberVisitorsWeekEnd(visitors);
+
+            displayData(weekDays, visitors);
+            document.write('<br>');
+            document.write(`Дні з малою відвідуваністю (менше 20): ${daysVisitorsLess20} <br>`);
+            document.write(`Дні з найменшою відвідуваністю: ${daysMinVisitors} <br>`);
+            document.write(`Дні з найбільшою відвідуваністю: ${daysMaxVisitors} <br>`);
+            document.write(`Кількість вівдвідувачів в будні дні: ${numberVisitorsWorkDays} <br>`);
+            document.write(`Кількість вівдвідувачів у вихідні дні: ${numberVisitorsWeekEnd} <br>`);
+
+        }
+
+    </script>
+    <br><br>
+    <p><a href="../index_08.html">Повернутись назад</a></p>
+</body>
+
+</html>

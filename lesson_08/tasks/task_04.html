@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Задача №4</h3>
+    <p>Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :</p>
+    <ul>
+        <li>починаються на букву «А»;</li>
+        <li>перша і остання літери співпадають;</li>
+        <li>складаються з більше ніш 5 символів;</li>
+    </ul>
+    <br>
+    <script>
+        if (confirm('Почати тестування?')) {
+
+            const carNumber = ['AK1234AK', 'AA8787AA', 'AK2015CE', 'AE1911YY', 'CE6553BA', 'DI1927IA', 'D1001', 'BB4177CH', 'AE8181EX', 'AA9265AY'];
+
+            let countFirstA = 0;
+            let countFirstLast = 0;
+            let countMoreThen5 = 0;
+
+            for (let i = 0; i < carNumber.length; i++) {
+                if (carNumber[i][0] === 'A') countFirstA++;
+                const lastStrIngex = carNumber[i].length - 1;
+                if (carNumber[i][0] === carNumber[i][lastStrIngex]) countFirstLast++;
+                if (carNumber[i].length > 5) countMoreThen5++;
+                document.write(`${carNumber[i]},<br>`);
+            }
+
+            document.write(`<br>Кількість знаків, що починаються на A: ${countFirstA} <br>`);
+            document.write(`Кількість знаків в яких співпадають перша і остання літери: ${countFirstLast} <br>`);
+            document.write(`Кількість знаків які складаються з більш ніж 5 символів: ${countMoreThen5} <br>`);
+
+        }
+
+    </script>
+    <br><br>
+    <p><a href="../index_08.html">Повернутись назад</a></p>
+
+</body>
+
+</html>

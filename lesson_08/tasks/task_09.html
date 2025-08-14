@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Задача №9</h3>
+    <p>Морський бій. Користувач вводить кількість клітинок одновимірного масиву
+        та кількість одиночних кораблів. Комп’ютер довільно розміщує ці одиночні кораблі
+        у масиві по один у клітинці (якщо у клітинці 0, то клітинка пуста, якщо 1 –
+        то це означає, що там є корабель. Користувач вводить номер клітинки,
+        куди стріляє. Гра продовжується до тих пір, поки не будуть потоплені усі кораблі.</p>
+    <br>
+    <script>
+        if (confirm('Почати тестування?')) {
+
+            function getRandomIntNumber(cellsNum) {
+                return Math.floor(Math.random() * (cellsNum + 1));
+            }
+
+            function genBattleField(cellsNum, shipsNum) {
+                let arr = [];
+                let countShips = shipsNum;
+                let cellMaxIndex = cellsNum - 1
+                for (let i = 0; i < cellsNum; i++)
+                    arr[i] = 0;
+                while (countShips > 0) {
+                    randomCell = getRandomIntNumber(cellMaxIndex);
+                    if (arr[randomCell] === 1) continue;
+                    arr[randomCell] = 1;
+                    countShips--;
+                }
+                return arr;
+            }
+
+            function fighting() {
+                let countShips = shipsNum;
+                while (countShips > 0) {
+                    const shotCellNumber = parseInt(prompt(`Введіть номер клітинки куди стріляти (від 1 до ${cellsNum})`, ''));
+                    if (battleField[shotCellNumber - 1] === 1) {
+                        battleField[shotCellNumber - 1] = 0;
+                        countShips--;
+                        if (countShips !== 0) alert(`Ви влучили по кораблю \nЩе залишилось ${countShips} кораблів`);
+                        else alert('Вітаю! Ви перемогли');
+                    }
+                }
+            }
+
+            const cellsNum = parseInt(prompt('Введіть величину поля', '10'));
+            const shipsNum = parseInt(prompt('Введіть кількість кораблів', '3'));
+            let battleField = genBattleField(cellsNum, shipsNum);
+            fighting();
+        }
+    </script>
+    <br><br>
+    <p><a href="../index_08.html">На головну сторінку</a></p>
+</body>
+
+</html>

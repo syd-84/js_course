@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Задача №3</h3>
+    <p>Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван».</p>
+    <br>
+    <script>
+        if (confirm('Почати тестування?')) {
+
+            const nameArray = ['Андрій', 'Петро', 'Іван', 'Степан', 'Іван', 'Іван', 'Степан', 'Микола']
+            let count = 0;
+
+            for (let i = 0; i < nameArray.length; i++) {
+                if (nameArray[i] === 'Іван') count++;
+            }
+
+            document.write(`Список імен: ${nameArray} <br>`);
+            document.write(`В списку ім'я Іван зустрічається ${count} раз`);
+
+        }
+
+    </script>
+    <br><br>
+    <p><a href="../index_08.html">Повернутись назад</a></p>
+</body>
+
+</html>

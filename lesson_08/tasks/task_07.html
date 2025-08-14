@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Задача №7</h3>
+    <p>Дано послідовність платіжок протягом року.</p>
+    <p>Знайти сумарну кількість грошей за:</p>
+    <ul>
+        <li>за весь рік;</li>
+        <li>у першій половині року;</li>
+        <li>у другій половині року;</li>
+        <li>за літо;</li>
+        <li>за ІІ квартал;</li>
+        <li>а парні місяці (з парними номерами);</li>
+        <li>за місяці, які є початковими у сезоні (весна, літо, осінь, зима).</li>
+    </ul>
+    <br>
+    <script>
+
+        if (confirm('Почати тестування?')) {
+
+            function showList(arr1, arr2) {
+                for (let i = 0; i < arr1.length; i++) {
+                    document.write(`${arr1[i]} ---> ${arr2[i]} <br>`);
+                }
+            }
+
+            function getSumForPeriod(firstMounth, lastMounth) {
+                let sum = 0;
+                for (let i = firstMounth - 1; i < lastMounth; i++)
+                    sum += paymentList[i];
+                return sum;
+            }
+
+            function getSumForEvenMoonth() {
+                let sum = 0;
+                for (let i = 1; i < paymentList.length; i += 2) {
+                    sum += paymentList[i]
+                }
+                return sum;
+            }
+
+            function getSumFirstMounthSeason() {
+                let sum = 0;
+                for (let i = 2; i < paymentList.length; i += 4) {
+                    sum += paymentList[i]
+                }
+                return sum;
+            }
+
+            // Вхідні дані
+            const paymentList = [500, 600, 700, 650, 570, 710, 750, 590, 620, 700, 490, 510];
+            const mounth = ['січень', 'лютий', 'березень', 'квітень', 'травень', 'червень', 'липень', 'серпень', 'вересень', 'жовтень', 'листопад', 'грудень'];
+
+            // Обчислення
+            const sumYear = getSumForPeriod(1, 12);
+            const sumFirstHalfYear = getSumForPeriod(1, 6);
+            const sumSecondHalfYear = getSumForPeriod(7, 12);
+            const sumSummer = getSumForPeriod(6, 8);
+            const sumSecondQuarter = getSumForPeriod(4, 6);
+            const sumEvenMounth = getSumForEvenMoonth();
+            const sumFirstMounthSeason = getSumFirstMounthSeason();
+
+            // Вивід результатів
+            document.write(`Платіжки по місяцях за рік:<br>`);
+            showList(mounth, paymentList);
+
+            document.write(`<br> Звіт витрат:<br>`);
+            document.write(`за рік: ${sumYear} <br>`);
+            document.write(`за першу половину року: ${sumFirstHalfYear} <br>`);
+            document.write(`за другу половину року: ${sumSecondHalfYear} <br>`);
+            document.write(`за літо: ${sumSummer} <br>`);
+            document.write(`за ІІ квартал: ${sumSecondQuarter} <br>`);
+            document.write(`за парні місяці (з парними номерами): ${sumEvenMounth} <br>`);
+            document.write(`за місяці, які є початковими у сезоні (весна, літо, осінь, зима): ${sumFirstMounthSeason} <br>`);
+
+        }
+
+
+
+    </script>
+    <br><br>
+    <p><a href="../index_08.html">Повернутись назад</a></p>
+
+</body>
+
+</html>
