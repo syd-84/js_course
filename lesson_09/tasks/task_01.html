@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Задача №1</h3>
+    <p>Користувач вводить кількість елементів.Створити масив, що складається з вказаної кількості елементів заповнених
+        нулями.</p>
+    <br>
+    <script>
+        if (confirm('Почати тестування?')) {
+            const numberOfZeroes = parseInt(prompt('Введіть кількість елементів', '0'));
+            const arrOfZeroes = Array(numberOfZeroes).fill(0);
+            document.write(arrOfZeroes);
+        }
+    </script>
+    <br><br>
+    <p><a href="../index_09.html">Повернутись назад</a></p>
+
+</body>
+
+</html>

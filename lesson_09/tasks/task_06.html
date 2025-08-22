@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>
+        Задача №6
+    </h3>
+    <p>Дано масив елементів. Усі елементи, які більші за перший елемент помножити на 2.</p>
+    <br>
+    <script>
+        if (confirm('Почати тестування?')) {
+            const arr = [2, 5, -3, 7, -2, 0, 4, -6, 7, -8];
+            let arr2 = arr.map(element => (element > arr[0]) ? element * 2 : element);
+            document.write(`Початковий масив: ${arr}<br>
+                            Кінцевий масив:${arr2}`);
+
+            // Інший спосіб розв'язку задачі
+            // const arr = [2, 5, -3, 7, -2, 0, 4, -6, 7, -8];
+            // document.write(`Початковий масив:<br>${arr}<br><br>`);
+
+            // arr.forEach((element, index, arrRef) => {
+            //     if (element > arr[0]) {
+            //         arrRef[index] *= 2;
+            //     }
+            // });
+            // document.write(`Кінцевий масив:<br>${arr}`);
+        }
+    </script>
+    <br><br>
+    <p><a href="../index_09.html">Повернутись назад</a></p>
+
+</body>
+
+</html>

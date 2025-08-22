@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>
+        Задача №2
+    </h3>
+    <p>Користувач вводить кількість елементів.Створити масив, у якому перша половина заповнена 1-цями, а друга заповнена
+        7-ками.</p>
+    <br>
+    <script>
+        if (confirm('Почати тестування?')) {
+            const numberOfNumeric = parseInt(prompt('Введіть кількість елементів', '0'));
+            const fisrtHalfIndex = Math.floor(numberOfNumeric / 2);
+            const arrOf1_7 = new Array(numberOfNumeric).fill(1, 0, fisrtHalfIndex).fill(7, fisrtHalfIndex, numberOfNumeric);
+            document.write(arrOf1_7);
+        }
+    </script>
+    <br><br>
+    <p><a href="../index_09.html">Повернутись назад</a></p>
+
+</body>
+
+</html>

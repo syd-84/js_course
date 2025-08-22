@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>
+        Задача №5
+    </h3>
+    <p>Дано масив елементів.Знайти добуток додатних елементів.</p>
+    <br>
+    <script>
+        if (confirm('Почати тестування?')) {
+            const arr = [2, 5, -3, 7, -2, 0, 4, -6, 7, -8];
+            document.write(`Початковий масив:<br>${arr}<br><br>`);
+
+            let product = 1;
+            for (const element of arr) {
+                if (element > 0)
+                    product *= element;
+            }
+            document.write(`Добуток додатних елементів: ${product}`);
+        }
+    </script>
+    <br><br>
+    <p><a href="../index_09.html">Повернутись назад</a></p>
+
+</body>
+
+</html>

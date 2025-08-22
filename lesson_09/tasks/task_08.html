@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>
+        Задача №8
+    </h3>
+    <p>Дано масив номерів авто.Сформувати новий масив тих, які починаються на «А».</p>
+    <br>
+    <script>
+        if (confirm('Почати тестування?')) {
+            const carNumbersList = ['AK1234AK', 'AA8787AA', 'AK2015CE', 'AE1911YY', 'CE6553BA', 'DI1927IA', 'D1001', 'BB4177CH', 'AE8181EX', 'AA9265AY'];
+            const sampleWithLettersA = carNumbersList.filter((carNumber) => carNumber[0] === 'A');
+
+            // Виведення результатів (для зручності)
+            document.write('Список номерів автомобілів:<br>');
+            for (const element of carNumbersList) {
+                document.write(`${element}<br>`);
+            }
+            document.write(`<br>Вибірка наомерів автомобілів з першою літерою А:<br>`);
+            for (const element of sampleWithLettersA) {
+                document.write(`${element}<br>`);
+            }
+        }
+    </script>
+    <br><br>
+    <p><a href="../index_09.html">Повернутись назад</a></p>
+
+</body>
+
+</html>
