@@ -34,9 +34,8 @@ if (confirm('Почати тестування?')) {
     document.write(`Масив, що міститить значення цін у відсотках стосовно максимального: <br> ${percentagePriceList}<br><br>`)
 
     // 5) Підрахувати кількість змін цін
-    const diffPrices = pricesList.map((price, index, prices) => prices[index] - prices[index - 1])
-    diffPrices[0] = 0;
-    document.write(`Підрахувати кількість змін цін: <br> ${diffPrices}<br><br>`)
+    const countChangePrices = pricesList.reduce((prevCount, price, index, prices) => (price === prices[index - 1] ? prevCount : prevCount + 1), 0)
+    document.write(`Підрахувати кількість змін цін: <br> ${countChangePrices}<br><br>`)
 
 
     // 6) Визначити, чи є ціна, що менше 1000
