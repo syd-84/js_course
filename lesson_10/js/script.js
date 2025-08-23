@@ -35,7 +35,7 @@ if (confirm('Почати тестування?')) {
 
     // 5) Підрахувати кількість змін цін
     const countChangePrices = pricesList.reduce((prevCount, price, index, prices) => (price === prices[index - 1] ? prevCount : prevCount + 1), 0)
-    document.write(`Підрахувати кількість змін цін: <br> ${countChangePrices}<br><br>`)
+    document.write(`Кількість змін цін: <br> ${countChangePrices}<br><br>`)
 
 
     // 6) Визначити, чи є ціна, що менше 1000
