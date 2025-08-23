@@ -4,7 +4,7 @@ if (confirm('Почати тестування?')) {
     for (let i = 0; i < 12; i++) {
         pricesList.push(1 + Math.floor(Math.random() * 10000))
     }
-    document.write(`Початкови масив вартості цінних паперів: <br> ${pricesList}<br><br>`)
+    document.write(`Початковий масив вартості цінних паперів: <br> ${pricesList}<br><br>`)
 
     // 1) Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.
     const pricesMoreThen1000 = pricesList.filter(price => price > 1000)
