@@ -24,7 +24,7 @@ if (confirm('Почати тестування?')) {
     const pricesMoreThenPrevious = pricesList.filter((element, index, prices) => {
         if (prices[index] > prices[index - 1]) return element
     })
-    document.write(`Список з тих цін, які більші за попереднє значення: <br> ${pricesMoreThenPrevious}<br><br>`)
+    document.write(`Список тих цін, які більші за попереднє значення: <br> ${pricesMoreThenPrevious}<br><br>`)
 
 
     // 4) Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального
@@ -34,7 +34,7 @@ if (confirm('Почати тестування?')) {
     document.write(`Масив, що міститить значення цін у відсотках стосовно максимального: <br> ${percentagePriceList}<br><br>`)
 
     // 5) Підрахувати кількість змін цін
-    const countChangePrices = pricesList.reduce((prevCount, price, index, prices) => (price === prices[index - 1] ? prevCount : prevCount + 1), 0)
+    const countChangePrices = pricesList.reduce((prevCount, price, index, prices) => (price === prices[index - 1] ? prevCount : prevCount + 1), -1)
     document.write(`Кількість змін цін: <br> ${countChangePrices}<br><br>`)
 
 
