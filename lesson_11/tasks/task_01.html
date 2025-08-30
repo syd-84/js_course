@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h3>
+    Задача №1
+  </h3>
+
+  <p>Знайти суми елементів у вказаній області (зафарбована область охоплює відповідну
+    половину рядків і стовпців)
+  </p>
+
+  <ol>
+    <li>номери рядків від 0 до половини, стовпці від 0 до половини</li>
+    <li>номери рядків від 0 до половини, стовпці від половини до кінця</li>
+    <li>номери рядків (від половини до кінця, стовпці від 0 до половини</li>
+    <li>номери рядків від половини до кінця , стовпці від половини до кінця</li>
+    <li>Суму парних рядків</li>
+    <li>Суму непарних стовпців</li>
+    <li>У парних рядках – непарні стовпці, у непарних – парні.</li>
+  </ol>
+  <br>
+  <script>
+    if (confirm('Почати тестування?')) {
+      // генеруємо випадкові числа
+      function genRandomNumber(minNum, maxNum) {
+        return minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
+      }
+
+      // генеруємо рядок масиву з випадкових чисел 
+      // (тут взяв двозначні числа для кращого відображення масивів)
+      function getRandomRow(lengthRow) {
+        const arr = []
+        for (let i = 0; i < lengthRow; i++) {
+          arr.push(genRandomNumber(10, 99));
+        }
+        return arr
+      }
+
+      // генеруємо двовимірний масив
+      function getRandomTable(rowsNum, colsNum) {
+        const arr = []
+        for (let i = 0; i < rowsNum; i++) {
+          arr.push(getRandomRow(colsNum))
+        }
+        return arr
+      }
+
+      // виводимо потрібну частину масиву
+      function writePieceOfArray(array, startRow, endRow, startCol, endCol) {
+        for (let i = startRow; i < endRow; i++) {
+          for (let j = startCol; j < endCol; j++) {
+            document.write(`${array[i][j]}  `)
+          }
+          document.write(`<br>`)
+        }
+      }
+
+
+      // розв'язок задачі
+      const numbersOfRows = parseInt(prompt('Number of Rows = ', '5'));
+      const numbersOfCols = parseInt(prompt('Number of Columns = ', '8'));
+
+      arr = getRandomTable(numbersOfRows, numbersOfCols)
+
+      document.write('Вихідний масив:<br>')
+      writePieceOfArray(arr, 0, arr.length, 0, arr[0].length)
+      document.write(`<br>`)
+
+      // 1) номери рядків від 0 до половини, стовпці від 0 до половини
+      const halfRowsIndex = Math.floor(arr.length / 2)
+      const halfColsIndex = Math.floor(arr[0].length / 2)
+      const maxRowIndex = arr.length
+      const maxColIndex = arr[0].length
+
+      document.write('1)<br>')
+      writePieceOfArray(arr, 0, halfRowsIndex, 0, halfColsIndex)
+      document.write(`<br>`)
+
+      // 2) номери рядків від 0 до половини, стовпці від половини до кінця
+      document.write('2)<br>')
+
+      writePieceOfArray(arr, 0, halfRowsIndex, halfColsIndex, maxColIndex)
+      document.write(`<br>`)
+
+
+      // 3) номери рядків (від половини до кінця, стовпці від 0 до половини
+      document.write('3)<br>')
+      writePieceOfArray(arr, halfRowsIndex, maxRowIndex, 0, halfColsIndex)
+      document.write(`<br>`)
+
+      // 4) номери рядків від половини до кінця , стовпці від половини до кінця
+      document.write('4)<br>')
+      writePieceOfArray(arr, halfRowsIndex, maxRowIndex, halfColsIndex, maxColIndex)
+      document.write(`<br>`)
+
+      // 5) Суму парних рядків
+      let sum5 = 0
+      for (let i = 1; i < maxRowIndex; i += 2) {
+        for (const element of arr[i]) {
+          sum5 += element
+        }
+      }
+      document.write(`5) Сума парних рядків: ${sum5}<br>`)
+
+      // 6) Суму непарних стовпців
+      let sum6 = 0
+      for (const element of arr) {
+        for (let i = 0; i < element.length; i += 2) {
+          sum6 += element[i]
+        }
+      }
+      document.write(`6) Сума непарних стовпців: ${sum6}<br>`)
+
+      // 7) У парних рядках – непарні стовпці, у непарних – парні.
+      let sum7 = 0
+      for (let rowIndex = 0; rowIndex < maxRowIndex; rowIndex++) {
+        for (let colIndex = 0; colIndex < maxColIndex; colIndex++) {
+          if ((rowIndex % 2 != 0 && colIndex % 2 === 0) || (rowIndex % 2 === 0 && colIndex % 2 != 0))
+            sum7 += arr[rowIndex][colIndex]
+        }
+      }
+      document.write(`7) Сума шахівниці: ${sum7}<br>`)
+    }
+
+  </script>
+  <br><br>
+  <p><a href="../index_11.html">Повернутись назад</a></p>
+
+</body>
+
+</html>

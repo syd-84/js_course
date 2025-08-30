@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h3>
+    Задача №3
+  </h3>
+
+  <p>Морський бій. Випадковим чином на двовимірному полі
+    розміром 6*6 розташовується 5 кораблів. Користувач стріляє вказуючи координати.
+    Гра продовжується поки не потоплено усі кораблі або у користувача не закінчаться снаряди.
+  </p>
+  <script>
+    if (confirm('Почати тестування?')) {
+      function getRow(lengthRow) {
+        const arr = []
+        for (let i = 0; i < lengthRow; i++) {
+          arr.push(0);
+        }
+        return arr
+      }
+
+      function getTable(rowsNum, colsNum) {
+        const arr = []
+        for (let i = 0; i < rowsNum; i++) {
+          arr.push(getRow(colsNum))
+        }
+        return arr
+      }
+
+      function getRandomNum(min, max) {
+        return min + Math.floor(Math.random() * (max - min + 1))
+      }
+
+      function standShips(arr, numShips) {
+        let countShips = numShips
+        while (countShips > 0) {
+          const randomRow = getRandomNum(0, 5)
+          const randomCol = getRandomNum(0, 5)
+          if (arr[randomRow][randomCol] === 1) continue
+          else {
+            arr[randomRow][randomCol] = 1
+            countShips--
+          }
+        }
+        return arr
+      }
+
+      function getBattleFieldInMassage(arr) {
+        let battleFieldInMessage = '_ '
+        for (let i = 0; i < arr.length; i++) {
+          battleFieldInMessage += i + ' '
+        }
+        battleFieldInMessage += '\n'
+        for (let i = 0; i < arr.length; i++) {
+          battleFieldInMessage += i + '|'
+          for (const elementCol of arr[i]) {
+            battleFieldInMessage += elementCol + ' '
+          }
+          battleFieldInMessage += '\n'
+        }
+        return battleFieldInMessage
+      }
+
+      function writeArray(array) {
+        for (let i = 0; i < array.length; i++) {
+          for (let j = 0; j < array[i].length; j++) {
+            document.write(`${array[i][j]}  `)
+          }
+          document.write(`<br>`)
+        }
+      }
+
+
+      let numOfShips = 5
+      let numOfShots = parseInt(prompt('Введіть кількість боєприпасів', '10'))
+      const battleField = getTable(6, 6)
+      standShips(battleField, numOfShips)
+      const visibleBattleField = getTable(6, 6)
+
+      while (numOfShots > 0) {
+        let visibleFieldInMessage = getBattleFieldInMassage(visibleBattleField)
+        let shotX = parseInt(prompt(`Поле битви\n${visibleFieldInMessage}\n Введіть координату X для пострілу (від 0 до 5)\n У вас залашилось ${numOfShots} спроби\n Залишилось ${numOfShips} кораблів`));
+        let shotY = parseInt(prompt(`Поле битви\n${visibleFieldInMessage}\n Введіть координату Y для пострілу (від 0 до 5)\n У вас залашилось ${numOfShots} спроби\n Залишилось ${numOfShips} кораблів`));
+        numOfShots--
+        visibleBattleField[shotY][shotX] = 'x'
+        if (battleField[shotY][shotX] === 1) {
+          battleField[shotY][shotX] = 0
+          visibleBattleField[shotY][shotX] = 'X'
+          numOfShips--
+          alert(`Вітаємо!\nВи влучили в один з кораблів ворога.\nЛишилося ще ${numOfShips} кораблів`)
+        }
+        if (numOfShips === 0) {
+          alert(`Вітаємо!\nВи перемогли ворога`)
+          break
+        }
+        if (numOfShots === 0) alert(`Закінчились боєприпаси\nВи програли`)
+      }
+
+      if (numOfShips === 0) document.write('Ви перемогли<br><br>')
+      else {
+        document.write('Ви програли<br><br>')
+        document.write('Розташування непотоплених кораблів<br>')
+        writeArray(battleField)
+        document.write('<br>Ваші стрільби<br>')
+        writeArray(visibleBattleField)
+      }
+    }
+  </script>
+  <br><br>
+  <p><a href="../index_11.html">Повернутись назад</a></p>
+</body>
+
+</html>

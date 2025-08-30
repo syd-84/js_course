@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h3>
+    Задача №2
+  </h3>
+
+  <p>Дано інформацію про прибуток К магазинів протягом тижня. Знайти:
+  </p>
+
+  <ol>
+    <li>загальний прибуток кожного масиву за тиждень;</li>
+    <li>загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.);
+    </li>
+    <li>загальний прибуток за робочі дні</li>
+    <li>загальний прибуток за вихідні дні</li>
+    <li>максимальний прибуток за середу</li>
+    <li>сформувати загальний список (одновимірний масив) зі значенням, які що більші за 200</li>
+    <li>відсортувати кожен тиждень за зростанням</li>
+    <li>відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні
+      рядків потрібно порівнювати максимальні елементи у кожному з цих рядків</li>
+    <li>упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків треба знайти
+      суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти
+      раніше).</li>
+  </ol>
+  <br>
+  <script>
+    if (confirm('Почати тестування?')) {
+
+      function genRandomNumber(minNum, maxNum) {
+        return minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
+      }
+
+      // (тут взяв тільки тризначні числа для кращого відображення масиву)
+      function getRandomRow(lengthRow) {
+        const arr = []
+        for (let i = 0; i < lengthRow; i++) {
+          arr.push(genRandomNumber(100, 250));
+        }
+        return arr
+      }
+
+      function getRandomTable(rowsNum, colsNum) {
+        const arr = []
+        for (let i = 0; i < rowsNum; i++) {
+          arr.push(getRandomRow(colsNum))
+        }
+        return arr
+      }
+
+      function getSumPricesDaysOfWeek(arr) {
+        let sumDaysWeek = []
+        for (let i = 0; i < arr[0].length; i++) {
+          sumDaysWeek.push(0)
+        }
+
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = 0; j < arr[i].length; j++) {
+            sumDaysWeek[j] += arr[i][j]
+          }
+        }
+        return sumDaysWeek
+      }
+
+      function getSumArray(arr) {
+        let sum = 0
+        for (const element of arr) {
+          sum += element
+        }
+        return sum
+      }
+
+      function writeArray(array) {
+        for (let i = 0; i < array.length; i++) {
+          for (let j = 0; j < array[i].length; j++) {
+            document.write(`${array[i][j]}  `)
+          }
+          document.write(`<br>`)
+        }
+        document.write(`<br>`)
+      }
+
+
+      const numberOfShops = parseInt(prompt('Введіть кількість магазинів = ', '5'));
+      const prices = getRandomTable(numberOfShops, 7)
+
+      document.write('Вихідний масив:<br>')
+      writeArray(prices)
+
+
+      document.write('1) Загальний прибуток кожного масиву за тиждень<br>')
+
+      for (let i = 0; i < prices.length; i++) {
+        let sumWeek = getSumArray(prices[i])
+        document.write(`Прибуток ${i + 1}-го магазину за тиждень: ${sumWeek}<br>`)
+      }
+      document.write('<br>')
+
+
+      document.write('2) Загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.);<br>')
+
+      const sumDaysWeek = []
+      for (let i = 0; i < prices.length; i++) {
+        let sumDays = 0
+        for (let j = 0; j < 7; j++) {
+          sumDays += prices[i][j]
+        }
+        sumDaysWeek.push(sumDays)
+      }
+
+      document.write(sumDaysWeek)
+      document.write('<br><br>')
+
+
+      document.write('3) Загальний прибуток за робочі дні<br>')
+
+      const sumPricesDaysOfWeek = getSumPricesDaysOfWeek(prices)
+      const sumWorkDays = sumPricesDaysOfWeek.slice(0, 5)
+
+      document.write(sumWorkDays)
+      document.write('<br><br>')
+
+
+      document.write('4) загальний прибуток за вихідні дні<br>')
+
+      const sumWeekEnd = sumPricesDaysOfWeek.slice(5)
+
+      document.write(sumWeekEnd)
+      document.write('<br><br>')
+
+
+      document.write('5) Максимальний прибуток за середу<br>')
+
+      // const seachMaxWednesday = prices.map(element => element[2])
+      // const maxWednesday = Math.max(...seachMaxWednesday)
+      const maxWednesday = Math.max(...prices.map(element => element[2]))
+      document.write(maxWednesday)
+      document.write('<br><br>')
+
+
+      document.write('6) Сформувати загальний список (одновимірний масив) зі значенням, які що більші за 200<br>')
+
+      const pricesMore200 = prices.flat(Infinity).filter(preice => preice > 200)
+      document.write(pricesMore200)
+      document.write('<br><br>')
+
+
+      document.write('7) Відсортувати кожен тиждень за зростанням<br>')
+      const copyPrices7 = JSON.parse(JSON.stringify(prices)) // скопіював масив prices, бо метод сортування змінює сам масив, що заважає виконувати подальші завдання
+      for (const element of copyPrices7) {
+        const sortRow = element.sort((a, b) => a - b)
+      }
+      writeArray(copyPrices7)
+      document.write('<br><br>')
+
+
+      document.write('8) Відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків<br>')
+
+      const copyPrices8 = JSON.parse(JSON.stringify(prices)) // скопіював масив prices, бо метод сортування змінює сам масив, що заважає виконувати подальші завдання
+      const sortByMax = copyPrices8.sort((a, b) => {
+        if (Math.max(...a) < Math.max(...b)) return 1
+        if (Math.max(...a) > Math.max(...b)) return -1
+        return 0
+      })
+      writeArray(sortByMax)
+      document.write('<br><br>')
+
+
+      document.write('9) Упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків треба знайти суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти раніше).<br>')
+
+      const copyPrices9 = JSON.parse(JSON.stringify(prices)) // скопіював масив prices, бо метод сортування змінює сам масив, що заважає виконувати подальші завдання
+      const sortBySum = prices.sort((a, b) => {
+        if (getSumArray(a) < getSumArray(b)) return 1
+        if (getSumArray(a) > getSumArray(b)) return -1
+        return 0
+      })
+      writeArray(sortBySum)
+    }
+  </script>
+  <br><br>
+  <p><a href="../index_11.html">Повернутись назад</a></p>
+
+</body>
+
+</html>
