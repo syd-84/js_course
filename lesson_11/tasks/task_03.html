@@ -57,7 +57,7 @@
         for (let i = 0; i < arr.length; i++) {
           battleFieldInMessage += i + ' '
         }
-        battleFieldInMessage += '\n-+---------------'
+        battleFieldInMessage += '\n-+---------------> x'
         battleFieldInMessage += '\n'
         for (let i = 0; i < arr.length; i++) {
           battleFieldInMessage += i + '|'
@@ -66,6 +66,7 @@
           }
           battleFieldInMessage += '\n'
         }
+        battleFieldInMessage += `  y\n`
         return battleFieldInMessage
       }
 
