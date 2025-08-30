@@ -53,10 +53,11 @@
       }
 
       function getBattleFieldInMassage(arr) {
-        let battleFieldInMessage = '_ '
+        let battleFieldInMessage = `  |`
         for (let i = 0; i < arr.length; i++) {
           battleFieldInMessage += i + ' '
         }
+        battleFieldInMessage += '\n-+---------------'
         battleFieldInMessage += '\n'
         for (let i = 0; i < arr.length; i++) {
           battleFieldInMessage += i + '|'
