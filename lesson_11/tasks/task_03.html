@@ -19,10 +19,7 @@
   <script>
     if (confirm('Почати тестування?')) {
       function getRow(lengthRow) {
-        const arr = []
-        for (let i = 0; i < lengthRow; i++) {
-          arr.push(0);
-        }
+        const arr = new Array(lengthRow).fill(0)
         return arr
       }
 
